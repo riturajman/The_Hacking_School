@@ -1,6 +1,6 @@
 import React from 'react';
 
-class List extends React.component{
+class List extends React.Component{
    render(){
     return(
         <div>
@@ -8,7 +8,7 @@ class List extends React.component{
         {this.props.contact.map((data)=>(
             <div>
             <h2>{data.name} : {data.handle}</h2>
-            <img scr={data.avatarURL} style={{width:"300px"}}/>
+            <img src={data.avatarURL} style={{width:"300px"}}/>
             </div>
     ))
     }
@@ -16,3 +16,5 @@ class List extends React.component{
     )
 }
 }
+
+export default List

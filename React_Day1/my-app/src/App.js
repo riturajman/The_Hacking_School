@@ -11,7 +11,7 @@ class App extends React.Component {
       {
         id: '1',
         name: 'afzal',
-        handle: '@afzal&#39;,
+        handle: '@afzal&#39;',
         avatarURL:
           'https://res.cloudinary.com/dspz2t0am/image/upload/v1545377545/undraw_experts3_3njd.svg'
       },
@@ -61,7 +61,7 @@ class App extends React.Component {
           decrement={this.decrement}
         />
         <List
-        contact={this.state.contacts}
+        contact={this.state.contact}
         />
       </div>
 
