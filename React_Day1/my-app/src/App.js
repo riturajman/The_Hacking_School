@@ -31,7 +31,11 @@ class App extends React.Component {
       }
     ]
   }
-  
+  removeUser = (id) => {
+    let newUsers = this.state.contact.filter((id)=>{
+      this.state.contact.id !== id
+    })
+  }
 
   increment = () => {
     this.setState({
@@ -62,6 +66,7 @@ class App extends React.Component {
         />
         <List
         contact={this.state.contact}
+        removeUser={this.removeUser}
         />
       </div>
 
