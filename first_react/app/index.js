@@ -4,11 +4,31 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 class App extends React.Component{
+    state = {
+        count : 0
+    }
+
+    increment = ()=>{
+        this.setState({
+            count : this.state.count + 1
+        })
+    }
+
+    decrement = ()=>{
+        this.setState({
+            count : this.state.count - 1
+        })
+    }
     render(){
+        const {count} = this.state
         return(
             <div>
-                <h1>This is H1</h1>
-                <h2>This is H2</h2>
+                <Counter count={count}
+                increment = {this.increment}
+                d
+                />
+
+                
             </div>
         )
     }
