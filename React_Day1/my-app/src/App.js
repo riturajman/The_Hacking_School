@@ -2,76 +2,100 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Counter from './Counter';
+// import CC from './CC'
 import List from './List';
-
+import User from './CF';
+import NameForm from './Uf';
 class App extends React.Component {
-  state = {
-    count: 0,
-    contact: [
-      {
-        id: '1',
-        name: 'afzal',
-        handle: '@afzal&#39;',
-        avatarURL:
-          'https://res.cloudinary.com/dspz2t0am/image/upload/v1545377545/undraw_experts3_3njd.svg'
-      },
-      {
-        id: '2',
-        name: 'tom',
-        handle: '@tom',
-        avatarURL:
-          'https://res.cloudinary.com/dspz2t0am/image/upload/v1545377545/undraw_experts3_3njd.svg'
-      },
-      {
-        id: '3',
-        name: 'Richard',
-        handle: '@richard',
-        avatarURL:
-          'https://res.cloudinary.com/dspz2t0am/image/upload/v1545377545/undraw_experts3_3njd.svg'
-      }
-    ]
-  }
-  removeUser = (id) => {
-    let newUsers = this.state.contact.filter((id)=>{
-      this.state.contact.id !== id
-    })
-  }
+	state = {
+		count: 0,
+		contacts: [
+			{
+				id: '1',
+				name: 'afzal',
+				handle: '@afzal',
+				edit: false,
+				avatarURL: 'https://res.cloudinary.com/dspz2t0am/image/upload/v1545377545/undraw_experts3_3njd.svg'
+			},
+			{
+				id: '2',
+				name: 'tom',
+				handle: '@tom',
+				edit: false,
+				avatarURL: 'https://res.cloudinary.com/dspz2t0am/image/upload/v1545377545/undraw_experts3_3njd.svg'
+			},
+			{
+				id: '3',
+				name: 'Richard',
+				handle: '@richard',
+				edit : false,
+				avatarURL: 'https://res.cloudinary.com/dspz2t0am/image/upload/v1545377545/undraw_experts3_3njd.svg'
+			}
+		]
+	};
 
-  increment = () => {
-    this.setState({
-      count: this.state.count + 1
-    })
-  }
+	increment = () => {
+		console.log('hello', this);
+		this.setState({
+			count: this.state.count + 1
+		});
+	};
+	decrement = () => {
+		this.setState({
+			count: this.state.count - 1
+		});
+	};
+	removeContacts = (contact) => {
+		console.log('inside app.js', contact);
+		const updateState = this.state.contacts.filter((c) => c.id !== contact.id);
+		console.log('only updated state', updateState);
+		this.setState({
+			contacts: updateState
+		});
+	};
 
-  decrement = () => {
-    if (this.state.count > 0) {
-      this.setState({
-        count: this.state.count - 1
-      })
-    }
-    else{
-      this.setState({
-        count : 0
-      })
-    }
-  }
-  
-  render() {
-    const { count } = this.state
-    return (
-      <div>
-        <Counter count={count}
-          increment={this.increment}
-          decrement={this.decrement}
-        />
-        <List
-        contact={this.state.contact}
-        removeUser={this.removeUser}
-        />
-      </div>
+	editContacts = (x) =>{
+		console.log("from editContacts")
+		let editNow = this.state.contacts.map((cont)=>{
+			if(x.id != cont.id){
+				return {
+					...cont
+				}
+			} else{
+			return {
+				...cont,
+				edit : true
+			}};
+			console.log(editNow)
+		})
+		this.setState({contacts : editNow}
+)
+	}
 
-    )
-  }
+	updateContact = (nData)=>{
+		let newData = this.state.contacts.map((cont)=>{
+			if(nData.id != cont.id){
+				return cont
+			} else {
+				return nData
+			}
+		})
+		this.setState({contacts : newData})
 }
-
+	render() {
+		const { count, contacts } = this.state;
+		return (
+			<div>
+				{/* <User />
+				<hr />
+				<h1>Uncontrolled Form </h1>
+				<NameForm />
+				<hr />
+				<Counter count={count} increment={this.increment} decrement={this.decrement} />
+				<hr /> */}
+				<List contacts={contacts} removeContacts={this.removeContacts} editContacts={this.editContacts} updateContact={this.updateContact}/>
+			</div>
+		);
+	}
+}
 export default App;
