@@ -28,7 +28,7 @@ class App extends React.Component {
 				id: '3',
 				name: 'Richard',
 				handle: '@richard',
-				edit : false,
+				edit: false,
 				avatarURL: 'https://res.cloudinary.com/dspz2t0am/image/upload/v1545377545/undraw_experts3_3njd.svg'
 			}
 		]
@@ -54,46 +54,47 @@ class App extends React.Component {
 		});
 	};
 
-	editContacts = (x) =>{
+	editContacts = (x) => {
 		console.log("from editContacts")
-		let editNow = this.state.contacts.map((cont)=>{
-			if(x.id != cont.id){
+		let editNow = this.state.contacts.map((cont) => {
+			if (x.id != cont.id) {
 				return {
 					...cont
 				}
-			} else{
-			return {
-				...cont,
-				edit : true
-			}};
+			} else {
+				return {
+					...cont,
+					edit: true
+				}
+			};
 			console.log(editNow)
 		})
-		this.setState({contacts : editNow}
-)
+		this.setState({ contacts: editNow }
+		)
 	}
 
-	updateContact = (nData)=>{
-		let newData = this.state.contacts.map((cont)=>{
-			if(nData.id != cont.id){
+	updateContact = (nData) => {
+		let newData = this.state.contacts.map((cont) => {
+			if (nData.id != cont.id) {
 				return cont
 			} else {
 				return nData
 			}
 		})
-		this.setState({contacts : newData})
-}
+		this.setState({ contacts: newData })
+	}
 	render() {
 		const { count, contacts } = this.state;
 		return (
 			<div>
-				{/* <User />
+				<User />
 				<hr />
 				<h1>Uncontrolled Form </h1>
 				<NameForm />
 				<hr />
 				<Counter count={count} increment={this.increment} decrement={this.decrement} />
-				<hr /> */}
-				<List contacts={contacts} removeContacts={this.removeContacts} editContacts={this.editContacts} updateContact={this.updateContact}/>
+				<hr />
+				<List contacts={contacts} removeContacts={this.removeContacts} editContacts={this.editContacts} updateContact={this.updateContact} />
 			</div>
 		);
 	}

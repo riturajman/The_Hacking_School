@@ -69,10 +69,7 @@ class List extends React.Component {
 //          <img alt={contact.name} src={contact.avatarURL} style={{width:"300px", height:"200px"}}/>
 //          <button onClick={()=>props.removeContacts(contact)}>Remove Item</button>
 //                       </div>
-//          ))}
-
-//         </div>
-//     )
+//          ))}l
 // }
 
 export default List;
