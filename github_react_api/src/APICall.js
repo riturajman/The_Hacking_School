@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+const axios = require('axios');
 
 class gitCall extends Component {
     state = {

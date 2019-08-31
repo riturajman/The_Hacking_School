@@ -86,13 +86,13 @@ class App extends React.Component {
 	render() {
 		const { count, contacts } = this.state;
 		return (
-			<div>
-				<User />
-				<hr />
+			<div className="container">
+				<User contacts={contacts} removeContacts={this.removeContacts} editContacts={this.editContacts} updateContact={this.updateContact}/>
+				{/* <hr />
 				<h1>Uncontrolled Form </h1>
 				<NameForm />
-				<hr />
-				<Counter count={count} increment={this.increment} decrement={this.decrement} />
+				<hr /> */}
+				{/* <Counter count={count} increment={this.increment} decrement={this.decrement} /> */}
 				<hr />
 				<List contacts={contacts} removeContacts={this.removeContacts} editContacts={this.editContacts} updateContact={this.updateContact} />
 			</div>

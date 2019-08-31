@@ -48,7 +48,7 @@ class List extends React.Component {
 						</h2>
 						<img alt={contact.name} src={contact.avatarURL} style={{ width: '300px', height: '200px' }} />
 						<button onClick={() => editContacts(contact)}>Edit Item</button>
-						{contact.edit ? <EDITFORM contact={contact} updateContact={updateContact}/> : "null"}
+						{contact.edit ? <EDITFORM contact={contact} updateContact={updateContact}/> : null}
 						<button onClick={() => removeContacts(contact)}>Remove Item</button>
 					</div>
 				))}
